@@ -6,7 +6,41 @@
 // Se o aluno não foi aprovado, indicar uma mensagem informando esta condição.
 // Apresentar junto com as mensagens o valor da média do aluno, para qualquer condição.
 
-    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nota1 = floatval($_POST['nota1']);
+        $nota2 = floatval($_POST['nota2']); 
+        $nota3 = floatval($_POST['nota3']);
+        $nota4 = floatval($_POST['nota4']);
+        $notaExame = isset($_POST['notaExame']) ? floatval($_POST['notaExame']) : null;
+
+        $media = ($nota1 + $nota2 + $nota3 + $nota4) / 4;
+
+        if ($media >= 7) {
+            echo "Você foi aprovado com a média: ";
+        } else {
+            echo "Você foi reprovado com a nota: ";
+            if ($notaExame === null) {
+                echo "Insira a nota do exame:";
+                echo '<form action="script.php" method="post">
+                        <input type="hidden" name="nota1" value="'. $nota1 .'">
+                        <input type="hidden" name="nota2" value="'. $nota2 .'">
+                        <input type="hidden" name="nota3" value="'. $nota3 .'"> 
+                        <input type="hidden" name="nota4" value="'. $nota4 .'">
+                        <input type="number" name="notaExame" required>
+                        <input type="submit" value="Enviar">
+                    </form>';
+            } else {
+                
+                $mediaFinal = ($media + $notaExame) / 2;
+                
+                if ($mediaFinal >= 5) {
+                    echo "Você foi aprovado em exame com a nova média: ";
+                } else {
+                    echo "Você não foi aprovado com a nova média: ";
+                }
+            }
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,6 +51,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <form action="script.php" method="post">
+        <label for="nota1">Nota 01:</label>
+        <input type="number" id="nota1" name="nota1">
+        <p></p>
+        <label for="nota2">Nota 02:</label>
+        <input type="number" id="nota2" name="nota2">
+        <p></p>
+        <label for="nota3">Nota 03:</label>
+        <input type="number" id="nota3" name="nota3">
+        <p></p>
+         <label for="nota4">Nota 04:</label>
+         <input type="number" id="nota4" name="nota4">
+         <p></p>
+         <button type="submit">Enviar</button>
+    </form>
 </body>
 </html>

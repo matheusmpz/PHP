@@ -4,16 +4,11 @@
 // Sabendo que este vendedor ganha 15% de comissão sobre suas vendas efetuadas,
 // informar o seu nome, o salário fixo e salário no final do mês.
 
+    $nome = $_POST['nome'];
+    $salario = $_POST['salario'];
+
+    $comissao = $salario * 0.15;
+    $newsalario = $salario + $comissao;
+
+    echo $nome . ', você recebeu R$' . $salario . ' esse mês, e teve um adicional de 15% por suas vendas ficando com: R$' . $newsalario;
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade - 01</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
-</body>
-</html>

@@ -4,16 +4,12 @@
 // leia percentual de acréscimo pra venda;
 // calcule o valor da venda, considerando que o valor da venda será o preciso de custo acrescido do percentual informado pelo usuário
 
+    $custo = $_POST['valor'];
+    $acrescimo = $_POST['add'];
+
+    $percentual = $custo * ($acrescimo / 100);
+    $venda = $custo + $percentual;
+
+    echo 'O valor de venda foi de: R$' . $venda;
+
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade - 01</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
-</body>
-</html>
