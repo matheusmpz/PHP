@@ -16,9 +16,9 @@
         $media = ($nota1 + $nota2 + $nota3 + $nota4) / 4;
 
         if ($media >= 7) {
-            echo "Você foi aprovado com a média: ";
+            echo "Você foi aprovado com a média: " . $media ."<br>";
         } else {
-            echo "Você foi reprovado com a nota: ";
+            echo "Você foi reprovado com a nota: ". $media ."<br>";
             if ($notaExame === null) {
                 echo "Insira a nota do exame:";
                 echo '<form action="script.php" method="post">
@@ -34,9 +34,9 @@
                 $mediaFinal = ($media + $notaExame) / 2;
                 
                 if ($mediaFinal >= 5) {
-                    echo "Você foi aprovado em exame com a nova média: ";
+                    echo "Você foi aprovado em exame com a nova média: ". $mediaFinal .", sendo maior que 5! <br>";
                 } else {
-                    echo "Você não foi aprovado com a nova média: ";
+                    echo "Você não foi aprovado com a nova média: " . $mediaFinal .", sendo maior que 5! <br>";
                 }
             }
         }
